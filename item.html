@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+
+<head>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<style>
+    .price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+</style>
+    
+	<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+
+
+    <script>
+        let state = localStorage.getItem("currentorder");
+        if (state == 'y') {
+            window.location = 'status.html'
+            
+        }
+    </script>
+
+    <style>
+        input[type=number] {
+          /*for absolutely positioning spinners*/
+          position: relative; 
+          padding: 5px;
+          padding-right: 25px;
+        }
+  
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+          opacity: 1;
+        }
+  
+        input[type=number]::-webkit-outer-spin-button, 
+        input[type=number]::-webkit-inner-spin-button {
+          -webkit-appearance: inner-spin-button !important;
+          width: 25px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+        }
+      </style>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
+    <!-- end what I copied -->
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title id="title"></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/0faf04db21.js" crossorigin="anonymous"></script>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+
+    <script>
+        var q = 1;
+    </script>
+
+    
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div id="prcolor" class="placeholder" style="border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;">
+			<div class="parallax-window" data-parallax="scroll" >
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<!-- <img src="img/simple-house-logo.png" alt="Logo" class="tm-site-logo" />  -->
+							<div class="tm-site-text-box">
+                                
+								<h1 id="mytitle" class="tm-site-title"></h1>
+								<h6 id="slogo" class="tm-site-description"></h6>	
+							</div>
+						</div>
+						<!-- <nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Home</a></li>
+								<li class="tm-nav-li"><a href="about.html" class="tm-nav-link">About</a></li>
+								<li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Contact</a></li>
+							</ul>
+						</nav>	 -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+        <div id="myfieldset" class="container text-center jus" style=" margin-top: 5px; margin-right: 2px; justify-content: center; justify-items: center;">
+                <img id="myimg" class="img-fluid"  alt="Image" style="border-radius: 15px;" width="200" height="200"/>
+                
+
+           
+                   
+
+        </div>
+        <!-- <label id="qlabel" for="" class="col-12" style="color: #1d6e46; font-family: afont;">الكـمية</label> -->
+        <input id="quantity" class="col-12" type="number" value="1" step="1" hidden />
+        <div id="mydiv" style="padding-top: 5px;  width: 100px; justify-content: center; justify-items: center; width: 100%; ">
+            <!-- <div style="background-color: #fff; padding-left: 25%; padding-right: 25%;">
+                <div style=" padding-left: 20%; padding-right: 20%;">
+                    <div style="border-radius: 7.5px; border-width: 2px; border-color: aqua; "> 
+                        <hr>
+                        <span  style="text-align: center; "> <i id="minus" class="fa-solid fa-circle-minus fa-lg" style="color: #325186; padding-left: 10px;"></i> </span> <span id="q">  </span> <span><i class="fa-solid fa-circle-plus fa-lg" style="color: #334057; padding-right: 10px;" id="plus"></i></span>
+                        <hr>
+                    </div>
+
+                </div>
+            </div> -->
+            
+        </div>
+        <hr>
+
+     <span  id="myspan" class="tm-paging-link active" style=" border-radius: 10px;  height: 60px;"><a id="submit" href="#" class="tm-paging-link active" style="font-family: afont; height: 60px;">اضافة للسلة </a> <span style=" border-left: 2px solid white; height: 40px;"></span><span  style="text-align: center;  padding-right: 10px;"> <i id="minus" class="fa-solid fa-circle-minus fa-lg" style="color: #fff; padding-left: 10px;"></i> </span> <span style="color: #fff; font-size: 20px;" id="q">  </span> <span><i class="fa-solid fa-circle-plus fa-lg" style="color: #fff; padding-right: 10px; " id="plus"></i></span>
+    </span>
+     <a id="back" href="index.html" class="tm-paging-link " style="font-family: afont;">رجوع</a>
+
+
+
+		
+
+	
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+
+    <script>
+
+
+
+
+          document.getElementById('q').innerText = q;
+          console.log(q);
+
+
+          var qid1 = document.getElementById('plus');
+          qid1.addEventListener("click", (e) => {
+
+            q++;
+            document.getElementById('q').innerText = q;
+            document.getElementById('quantity').value = q;
+
+
+
+           });
+
+
+           var qid2 = document.getElementById('minus');
+          qid2.addEventListener("click", (e) => {
+
+            if (q != 1) {
+                q--;
+            document.getElementById('q').innerText = q;
+            document.getElementById('quantity').value = q;
+
+
+            }
+
+           
+
+           });
+
+
+
+
+
+
+
+
+
+
+    var stringuiobj = localStorage.getItem('uiobj');
+    var uiobj = JSON.parse(stringuiobj);
+
+    if (stringuiobj != null) {
+        document.getElementById('prcolor').style.backgroundColor = uiobj[0];
+        // document.getElementById('qlabel').style.color = uiobj[0];
+        // document.getElementById('minus').style.color = uiobj[0];
+        // document.getElementById('plus').style.color = uiobj[0];
+
+        document.getElementById('submit').style.backgroundColor = uiobj[0];
+        document.getElementById('myspan').style.backgroundColor = uiobj[0];
+        document.getElementById('back').style.color = uiobj[0];
+        document.getElementById('title').innerHTML = uiobj[1];
+        document.getElementById('mytitle').innerText = uiobj[1];
+        document.getElementById('slogo').innerText = uiobj[2];
+    }
+
+
+        
+
+        function getQueryParams(qs) {
+         qs = qs.split('+').join(' ');
+
+           var params = {},
+           tokens,
+           re = /[?&]?([^=]+)=([^&]*)/g;
+
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+
+          return params;
+         }
+
+         var query = getQueryParams(document.location.search);
+
+         var tag = query.tag;
+         var imgsrc = query.imgsrc;
+         var price = query.price;
+         var back = query.back;
+
+         document.getElementById("myimg").src = imgsrc;
+
+
+
+        let retStringDetailstitels = localStorage.getItem("detailstitels");
+		let retArrayDetailstitels = JSON.parse(retStringDetailstitels);
+
+        id = localStorage.getItem('id');
+
+        document.getElementById('back').href = 'index.html?id='+id+'&back='+back ;
+
+        
+
+
+
+
+        for (let index = 0; index < retArrayDetailstitels.length; index++) {
+            console.log(retArrayDetailstitels[index]["items-tag"]);
+            if (retArrayDetailstitels[index]["items-tag"] == tag) {
+                console.log('hi');
+
+			     var html =  '<hr> <fieldset id="'+index+'" > <legend id="'+retArrayDetailstitels[index].title+'" style="font-family: afontbold; color:'+ uiobj[0]+'">'+retArrayDetailstitels[index].title+'</legend> </fieldset> ' ;
+			     html = $.parseHTML( html);
+                 $("#myfieldset").append(html);  
+
+                let retStringDetails = localStorage.getItem("details");
+		        let retArrayDetails = JSON.parse(retStringDetails);
+
+                 for (let index2 = 0; index2 < retArrayDetails.length; index2++) {
+                    if (retArrayDetails[index2]["details-tl-tag"] == retArrayDetailstitels[index].title && retArrayDetails[index2]["items-tag"] == retArrayDetailstitels[index]['items-tag']) {
+                        var html2 = '<div> <input style="font-family: afont;" type="checkbox" id="'+retArrayDetails[index2].name+'-'+retArrayDetails[index2].price+'" name="'+retArrayDetails[index2].name+'" > <label style="font-family: afont; color:'+ uiobj[0]+' " for="'+retArrayDetails[index2].name+'"> '+retArrayDetails[index2].name+' - '+ retArrayDetails[index2].price+' ر.س </label> </div> ';
+                         html2 = $.parseHTML(html2);
+                         $('#'+index).append(html2);   
+                    }
+                   
+                    
+                    
+                 }
+
+                
+            }   
+            
+        }
+
+      
+
+
+
+        var submit = document.getElementById('submit');
+        submit.addEventListener("click", (e)=>{
+            e.preventDefault();
+            var quantity = document.getElementById('quantity').value;
+            console.log(quantity);
+
+
+        var order = localStorage.getItem("order");
+
+        if (order != null ) {
+            let orderarr = JSON.parse(order);
+            var num = orderarr.length;
+
+            var inputs = document.getElementsByTagName('input');
+            // var totalmeal = parseInt(price) * parseInt(quantity);
+            var addonname = "";
+            var addonprice = 0;
+
+            for(var i = 0; i < inputs.length; i++) {
+            if(inputs[i].type.toLowerCase() == 'checkbox') {
+                var addpricearr = inputs[i].id.split("-");
+
+                if (inputs[i].checked) {
+                    addonname = addonname + ", "+ addpricearr[0];
+                    addonprice = addonprice + parseInt(addpricearr[1]);  
+
+                }
+
+                
+               
+                }
+            }
+
+            var totalpricebeforetotal =  (addonprice + parseInt(price)) *  parseInt(quantity);
+            var x = orderarr[num - 1].total;
+            var totalprice = totalpricebeforetotal + x;
+
+
+            orderarr[num] =  {
+                    "name" : tag,
+                    "price" : parseInt(price),
+                    "addonname" : addonname,
+                    "addonprice" : addonprice,
+                    "quantity" : parseInt(quantity),
+                    "total": totalprice,
+                    "imgsrcfrontend": imgsrc
+                };
+
+            var  stringorderstg = JSON.stringify(orderarr);
+		    localStorage.setItem("order", stringorderstg);
+            swal("تم اضافة الطلب", "تم اضافة الطلب بالسلة", "success").then(e=>{
+                id = localStorage.getItem('id');
+
+                window.location = 'index.html?id=' + id+'&back='+back;
+                
+
+            });
+
+           
+            
+        }else {
+
+            var order =  [];
+
+            var inputs = document.getElementsByTagName('input');
+            var addonname = "";
+            var addonprice = 0;
+
+
+
+            for(var i = 0; i < inputs.length; i++) {
+               if(inputs[i].type.toLowerCase() == 'checkbox' ) {
+               
+                var addpricearr = inputs[i].id.split("-");
+
+                if (inputs[i].checked) {
+                    addonname = addonname + ", "+ addpricearr[0];
+                    addonprice = addonprice + parseInt(addpricearr[1]);   
+                }
+                 
+                }
+            }
+
+            var totalprice = ( addonprice + parseInt(price)) *  parseInt(quantity);
+
+
+            order[0] =  {
+                    "name" : tag,
+                    "price" : parseInt(price),
+                    "addonname" : addonname,
+                    "addonprice" : addonprice,
+                    "quantity" : parseInt(quantity),
+                    "total": totalprice ,    
+                    "imgsrcfrontend": imgsrc
+                };
+
+            var  stringorder = JSON.stringify(order)
+		    localStorage.setItem("order", stringorder)
+            swal("تم اضافة الطلب", "تم اضافة الطلب بالسلة", "success").then(e=>{
+
+                window.location = 'index.html?id=' + id+'&back='+back;
+
+            });;
+
+
+        }
+		
+           
+
+
+        });
+
+       
+    </script>
+	
+</body>
+
+
+
+</html>

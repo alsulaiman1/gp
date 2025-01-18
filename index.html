@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html  dir="rtl">
+
+
+<!-- the temp cart only visible in prod, why? - Aljouei -->
+<head>
+	<meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+
+
+    <title id="title" style="font-family: 'afont';">Simple House Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/0faf04db21.js" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+	<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+</head>
+
+<script>
+	let state = localStorage.getItem("currentorder");
+	if (state == 'y') {
+		window.location = 'status.html'
+		
+	}
+</script>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+
+<style>
+.fab-container{
+
+position:fixed;
+
+bottom:2%;
+/* make 2% in prod */
+
+right:19%;
+z-index: 1;
+
+cursor:pointer;
+
+}
+</style>
+<body> 
+
+	<div class="container">
+
+		
+		 
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div id="prcolor" class="placeholder" dir="ltr" style="background-color: #fff; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; padding-top: 15px;" >
+			<div class="parallax-window" data-parallax="scroll" >
+				<div class="tm-header" >
+					<div class="row tm-header-inner" >
+						<div class="col-md-6 col-12">
+							<!-- <img src="img/simple-house-logo.png" alt="Logo" class="tm-site-logo" />  -->
+							<div class="tm-site-text-box">
+								<h1 id="mytitle" class="tm-site-title"  ></h1>
+								<h6 id="slogo" class="tm-site-description"></h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							
+							<ul class="tm-nav-ul">
+
+								
+								<li class="tm-nav-li"><a href="" id="mya" class="tm-nav-link active"><i class="fa-solid fa-utensils fa-lg" style="color: #ffffff;"></i>						
+								</a></li>
+								<li class="tm-nav-li"><a  href="cart.html" class="tm-nav-link"><i class="fa-sharp fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>
+									
+
+							
+										<!-- <i class="fa fa-bell" aria-hidden="true"></i> -->
+										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" id="counter" >
+										   <span id="output" class="badge rounded-pill bg-danger"></span>
+										</span>
+								
+								
+								
+								
+								
+								
+								</a> </li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+
+     var stringitemobj = localStorage.getItem('order');
+	var orderarr = JSON.parse(stringitemobj);
+	if (orderarr != null) {
+
+		var itemsnum = orderarr.length;
+		console.log(itemsnum);
+		document.getElementById('output').innerText = itemsnum.toString();
+
+		
+	}
+	
+
+
+
+	var stringuiobj = localStorage.getItem('uiobj');
+	var uiobj = JSON.parse(stringuiobj);
+
+	if (stringuiobj != null) {
+		document.getElementById('prcolor').style.backgroundColor = uiobj[0];
+		document.getElementById('title').innerHTML = uiobj[1];
+		document.getElementById('mytitle').innerHTML = uiobj[1];
+		document.getElementById('slogo').innerHTML = uiobj[2];
+	}
+
+
+
+
+			
+
+
+
+		</script>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<!-- <h2 class="col-12 text-center tm-section-title">Welcome to Simple House</h2>
+				<p class="col-12 text-center">Total 3 HTML pages are included in this template. Header image has a parallax effect. You can feel free to download, edit and use this TemplateMo layout for your commercial or non-commercial websites.</p> -->
+			</header>
+			
+			<div class="tm-paging-links">
+				<nav>
+					<ul id="myul">
+						  <!-- <li class="tm-paging-item"><a href="#" class="tm-paging-link">الكل</a></li> -->
+						<!-- <li class="tm-paging-item"><a href="#" class="tm-paging-link">Noodle</a></li>  -->
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Gallery -->
+			<div id="mydiv" class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<!-- <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Fusce dictum finibus</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<a href="item.html" class="tm-nav-link active"> <i class="fa-solid fa-plus" style="color: #286e46;"></i>
+						
+								</a>
+								
+								<p class="tm-gallery-price">$55</p>
+							</figcaption>
+						</figure>
+					</article>
+					
+					
+				</div>  -->
+				
+				<!-- gallery page 1 -->
+
+	<span  id="myspan"  class="fab-container active move" style=" border-radius: 10px;  height: 60px; padding: 10px 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; background-color: transparent; color: #fff;"><a id="submit" href="#" class="active move" style="font-family: afont; height: 60px; padding: 10px 30px; display: flex; align-items: center; justify-content: center; text-decoration: none; background-color: transparent; color: #fff;">عرض السلة</a> <span class="move" style="height: 40px;"></span><span id="amount"  style="text-align: center;  padding-right: 10px;" class="move"></span> 
+</span>
+
+				
+			</div>
+
+
+
+			
+		</main>
+
+	</div>
+	<script>
+				document.getElementById('myspan').style.visibility = "hidden";
+
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+
+	<script>
+		 function getQueryParams(qs) {
+         qs = qs.split('+').join(' ');
+
+           var params = {},
+           tokens,
+           re = /[?&]?([^=]+)=([^&]*)/g;
+
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+            }
+
+          return params;
+         }
+
+         var query = getQueryParams(document.location.search);
+
+         var id = query.id;
+         localStorage.setItem('id' , id);
+
+		 document.getElementById('mya').href = 'index.html?id='+id;
+	</script>
+
+	<!-- use the below script outside github -->
+	<script type="module">
+
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+		import { getFirestore , collection, query, where, getDocs , doc, getDoc, orderBy} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+		
+  if (localStorage.getItem("firsttime") == null) {
+
+	id = localStorage.getItem('id');
+
+	const firebaseConfig = {
+		  apiKey: "AIzaSyCXBoacFAwjCLeH1vRNO67XGfdG_eJjO7k",
+		  authDomain: "qride-9fa6f.firebaseapp.com",
+		  projectId: "qride-9fa6f",
+		  storageBucket: "qride-9fa6f.appspot.com",
+		  messagingSenderId: "632703434000",
+		  appId: "1:632703434000:web:c2d133c8b4cfffd8ef3995",
+		  measurementId: "G-VQTB8R1VHC",
+		//   databaseURL: "https://qride-9fa6f-europe-west2.firebaseio.com/"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+		const db = getFirestore(app);
+
+		const docRef2 = doc(db, "menu", id);
+	    const docSnap2 = await getDoc(docRef2);
+
+		if (docSnap2.data().status != 'open') {
+			Swal.fire({
+				icon: 'error',
+				title: 'عذرا ..',
+				text: 'المتجر مغلق',
+			}).then(e=>{
+				localStorage.clear();
+				location.reload();
+			})
+		}
+
+
+
+	  const docRef = doc(db, "shopui", id);
+	  const docSnap = await getDoc(docRef);
+	  var uiobj = [];
+
+	  if (docSnap.exists()) {
+		uiobj[0] =  docSnap.data().prcolor;
+		uiobj[1] =  docSnap.data().title;
+		uiobj[2] =  docSnap.data().slogo;
+
+		var  stringuiobj = JSON.stringify(uiobj)
+
+		localStorage.setItem('uiobj' , stringuiobj);
+
+		  console.log("Document data:", docSnap.data());
+	  } else {
+		  // docSnap.data() will be undefined in this case
+		  console.log("No such document!");
+	  }
+
+	  document.getElementById('prcolor').style.backgroundColor = uiobj[0];
+
+	  document.getElementById('title').innerHTML = uiobj[1];
+	  document.getElementById('mytitle').innerHTML = uiobj[1];
+	  document.getElementById('slogo').innerHTML = uiobj[2];
+
+
+
+
+	  
+		
+
+
+        var details =  [];
+		var detailsnum = 0;
+
+		var detailstitels =  [];
+		var detailstitelsnum = 0;
+
+		var items =  [];
+		var itemsnum = 0;
+
+		var sections = [];
+		var sectionsnum = 0;
+
+
+
+
+
+		const querySnapshot = await getDocs(collection(db, "menu", id, "details"));
+        querySnapshot.forEach((doc) => {
+			details[detailsnum++] = doc.data();
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+
+        });
+
+		const querySnapshot2 = await getDocs(collection(db, "menu", id, "detailstitels"));
+        querySnapshot2.forEach((doc) => {
+			detailstitels[detailstitelsnum++] = doc.data();
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+
+        });
+
+		const querySnapshot3 = await getDocs(query(collection(db, "menu", id, "items"), orderBy('sort')));
+        querySnapshot3.forEach((doc) => {
+			if (doc.data().status == 'a') {
+				items[itemsnum++] = doc.data();
+				console.log(doc.id, " => ", doc.data());
+
+
+			}
+
+
+        });
+
+		const querySnapshot4 = await getDocs(query(collection(db, "menu", id, "sections"), orderBy('sort') ));
+        querySnapshot4.forEach((doc) => {
+			sections[sectionsnum++] = doc.data();
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+
+
+        });
+
+        var  stringdetails = JSON.stringify(details)
+        localStorage.setItem("details", stringdetails)
+
+		var  stringdetailstitels = JSON.stringify(detailstitels)
+		localStorage.setItem("detailstitels", stringdetailstitels)
+
+		var  stringitems = JSON.stringify(items)
+		localStorage.setItem("items", stringitems)
+		
+        var  stringsections = JSON.stringify(sections)
+		localStorage.setItem("sections", stringsections)
+
+
+		
+
+// // Retrieving the string
+// let retString = localStorage.getItem("details")
+
+// // Retrieved array
+// let retArray = JSON.parse(retString)
+
+// كمل باقي المصفوفات من فايرستور
+		
+
+
+// here define first time
+        localStorage.setItem("firsttime", false);
+		
+		}
+
+	    let retStringSections = localStorage.getItem("sections");
+		let retArraySections = JSON.parse(retStringSections);
+
+		var stringuiobj = localStorage.getItem('uiobj');
+	    var uiobj = JSON.parse(stringuiobj);
+
+		document.getElementById('myspan').style.backgroundColor = uiobj[0];
+		document.getElementById('submit').style.backgroundColor = uiobj[0];
+
+
+
+
+
+
+
+		for (let index = 0; index < retArraySections.length; index++) {
+			var html =  '<li  class="tm-paging-item"  background-color:'+uiobj[0]+';"><a href="#" class="tm-paging-link active" style="border-radius: 10px; border: 2px solid ; text-decoration: none; padding: 10px; background-color:'+uiobj[0]+'; color: #ff;  font-family: afont;">'+retArraySections[index].name+'</a></li>' ;
+			html = $.parseHTML( html);
+            $("#myul").append(html);
+			
+		}
+
+
+		let retStringItems = localStorage.getItem("items");
+		let retArrayItems = JSON.parse(retStringItems);
+
+		// <span style="float:left; position: relative; ">  <a  href="item.html?tag='+retArrayItems[index].name+'&imgsrc='+retArrayItems[index].imgpath+'&price='+retArrayItems[index].price+'" class="btn" style="background-color: '+uiobj[0]+'; color: #fff">اضف للسلة  <i class="fa-solid fa-plus" style="color: #fff;"></i></a> </span>
+		
+		for (let index = 0; index < retArrayItems.length; index++) {
+		//	console.log(retArrayItems[index]["sections-tag"]);
+			var html = '<div id="tm-gallery-page-'+retArrayItems[index]["sections-tag"].replace(/\s/g, '')+'" class="card tm-gallery-page" style="width: 18rem; border-radius: 15px; padding:20px;">   <img id="'+index+'" class="card-img-top" src="'+retArrayItems[index].imgpath+'" alt="Card image cap" style="border-radius: 15px;"> <div class="card-body">       <h5    class="card-title" style="font-style: Bold; font-size: 26px; color:'+uiobj[0]+';  font-family: afont;">' + retArrayItems[index].name+ '</h5>   <p  class="card-text" style=" font-family: afont;" >' + retArrayItems[index].des+'</p>  <span style="float:left; position: relative; ">  <a  href="item.html?tag='+retArrayItems[index].name+'&imgsrc='+retArrayItems[index].imgpath+'&price='+retArrayItems[index].price+'&back='+index+'" class="btn" style="background-color: '+uiobj[0]+'; color: #fff;  font-family: afont;">اضف للسلة  <i class="fa-solid fa-plus" style="color: #fff;""></i></a> </span>  <span style="float:right; font-family: afontbold; font-size: 20px ; color: '+uiobj[0]+'" class="price">'+retArrayItems[index].price+' ر.س<span>     </div>   </div> ';
+			//var html =  '<div id="tm-gallery-page-'+retArrayItems[index]["sections-tag"]+'" class="tm-gallery-page"> <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"> <figure> <img src="'+retArrayItems[index].imgpath+'" class="img-fluid tm-gallery-img" /><figcaption> <h4 class="tm-gallery-title">' + retArrayItems[index].name+ '</h4> <p class="tm-gallery-description">' + retArrayItems[index].des+'</p> <a href="item.html?tag='+retArrayItems[index].name+'&imgsrc='+retArrayItems[index].imgpath+'&price='+retArrayItems[index].price+'" class="tm-nav-link active"> <i class="fa-solid fa-plus" style="color: #286e46;"></i> </a> <p class="tm-gallery-price">$55</p> </figcaption> </figure> </article> </div>' ;
+			html = $.parseHTML(html);
+            $("#mydiv").append(html);
+			
+		}
+
+		$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+
+			var stringuiobj = localStorage.getItem('uiobj');
+			var uiobj = JSON.parse(stringuiobj);
+
+			console.log(uiobj[0]);
+
+				
+				var page = $(this).text().replace(/\s/g, '').toLowerCase();
+				console.log(page);
+				
+				
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-'+page).removeClass('hidden');
+				$(".tm-paging-link").css("background-color","#ffffff");
+				$(".tm-paging-link").css("color",uiobj[0]);
+				$(this).css("background-color",uiobj[0]);
+				$(this).css("color","#ffffff");
+
+			//	$('.tm-paging-link').removeClass('active');
+			
+			//	$('.tm-paging-link').style.backgroundColor = "" ;
+			//	$(this).addClass("active");
+			//	$(this).style.backgroundColor = uiobj[0];
+			});
+
+	var queryurl = getQueryParams(document.location.search);
+
+	var back = queryurl.back;
+	console.log(back);
+
+	if (back != undefined) {
+		console.log(back);
+
+		$('html, body').animate({
+			scrollTop: $('#'+back).offset().top
+		}, 300);
+
+	}
+
+
+
+	var stringitemobj = localStorage.getItem('order');
+	var orderarr = JSON.parse(stringitemobj);
+	if (orderarr != null) {
+		console.log('hi');
+
+	
+         
+		document.getElementById('myspan').style.visibility = 'visible';
+		var total = orderarr[orderarr.length -1]['total'];
+		console.log(total);
+		document.getElementById('amount').innerHTML = '    ' + total + " ر.س";
+		
+	}
+
+	$('.move').click((e)=>{
+		e.preventDefault();
+
+		window.location = 'cart.html';
+
+	});
+
+
+
+
+
+
+
+
+		
+
+		
+
+	  </script>
+
+
+
+	<script>
+		$(document).ready(function(){
+
+		
+
+
+	
+
+	
+
+      
+			// Handle click on paging links
+
+		});
+
+
+		
+
+		
+	</script>
+</body>
+</html>

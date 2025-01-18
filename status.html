@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+
+<head>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title id="title"></title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+	<link href="css/all.min.css" rel="stylesheet" />
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+
+	
+	<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+<script>
+	// let state = localStorage.getItem("currentorder");
+	// if (state == 'y') {
+	// 	window.location = 'status.html'
+		
+	// }
+</script>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<style>
+	.rate {
+    float: right;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+</style>
+<body>
+
+	<div class="container">
+		<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div id="prcolor" class="placeholder" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+			<div class="parallax-window" data-parallax="scroll">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<!-- <img src="img/simple-house-logo.png" alt="Logo" class="tm-site-logo" />  -->
+							<div class="tm-site-text-box">
+								<h1 id="mytitle" class="tm-site-title"></h1>
+								<h6 id="slogo" class="tm-site-description"></h6>
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<!-- <li class="tm-nav-li"><a href="index.html" class="tm-nav-link">الرئيسية</a></li> -->
+
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header id="hed" class="row tm-welcome-section">
+				<h2 id="mes" class="col-12 text-center tm-section-title" style="font-family: afont;" >لحظات وسيتم تجهيز الطلب</h2>
+				<!-- <small id="mysmall"></small>  -->
+			</header>
+
+
+			<div id="nomoreme" class="tm-container-inner tm-featured-image">
+				<div class="row">
+					<div class="col-12">
+						<div id="upimg" class="placeholder-2">
+							<div id="img" class="parallax-window-2" data-parallax="scroll" data-image-src="https://cdn.dribbble.com/users/2556713/screenshots/7569532/media/266e0452b1ce6ebebee6d3d8871d6ddd.gif">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="share" style="width: 100%;">
+				
+				<div class="card-body">
+				  <h5 class="card-title" style="font-family: afont;">كيف كانت تجربتك بالطلب؟</h5>
+				  <div class="rate" dir="rtl">
+					<input type="radio" id="star5" name="rate" value="5" />
+					<label for="star5" title="text">5 stars</label>
+					<input type="radio" id="star4" name="rate" value="4" />
+					<label for="star4" title="text">4 stars</label>
+					<input type="radio" id="star3" name="rate" value="3" />
+					<label for="star3" title="text">3 stars</label>
+					<input type="radio" id="star2" name="rate" value="2" />
+					<label for="star2" title="text">2 stars</label>
+					<input type="radio" id="star1" name="rate" value="1" />
+					<label for="star1" title="text">1 star</label>
+				  </div>
+				  <div class="input-group" style="padding-bottom: 2%;">
+			
+					<textarea class="form-control" aria-label="With textarea" id="ta"></textarea>
+				  </div>
+				  <a id="rateme" class="btn" style=" border-radius: 5px; padding-top: 5px; color: #fff;">قيـم</a>
+				</div>
+			  </div>
+
+			  
+
+			
+
+
+		</main>
+
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+
+	<script>
+			var stringuiobj = localStorage.getItem('uiobj');
+			var uiobj = JSON.parse(stringuiobj);
+
+
+			if (stringuiobj != null) {
+				document.getElementById('prcolor').style.backgroundColor = uiobj[0];
+				document.getElementById('rateme').style.backgroundColor = uiobj[0];
+				document.getElementById('title').innerHTML = uiobj[1];
+				document.getElementById('mytitle').innerText = uiobj[1];
+				document.getElementById('slogo').innerText = uiobj[2];
+			}
+
+	</script>
+
+
+	<script type="module">
+	
+
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+		import { getFirestore, collection, query, where, getDocs, addDoc,onSnapshot, doc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+		// import { getDatabase , ref, set, onValue} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+       
+		const firebaseConfig = {
+			apiKey: "AIzaSyCXBoacFAwjCLeH1vRNO67XGfdG_eJjO7k",
+			authDomain: "qride-9fa6f.firebaseapp.com",
+			projectId: "qride-9fa6f",
+			storageBucket: "qride-9fa6f.appspot.com",
+			messagingSenderId: "632703434000",
+			appId: "1:632703434000:web:c2d133c8b4cfffd8ef3995",
+			measurementId: "G-VQTB8R1VHC",
+			//   databaseURL: "https://qride-9fa6f-europe-west2.firebaseio.com/"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+		const db = getFirestore(app);
+
+
+		var star = 0;
+
+		
+		$('#star1').click(function (e) {
+			star = 1;	
+		});
+
+		$('#star2').click(function (e) {
+			star = 2;	
+		});
+		$('#star3').click(function (e) {
+			star = 3;	
+		});
+		$('#star4').click(function (e) {
+			star = 4;	
+		});
+		$('#star5').click(function (e) {
+			star = 5;	
+		});
+		
+
+
+		$('#rateme').click(async function (e) {
+			e.preventDefault();
+			var des = $('#ta').val();
+			
+
+			const docRef = await addDoc(collection(db, "sugg"), {
+
+				des: des,
+				star: star
+
+			});
+
+			swal("شكرا لك لتقييمك", "نتطلع دائما لخدمتك", "success").then(e=>{
+				$('#share').empty();
+          });
+		});
+
+
+		let person = localStorage.getItem("person");
+		let retArrayPerson = JSON.parse(person);
+
+		let order = localStorage.getItem("order");
+		let retArrayOrder = JSON.parse(order);
+
+		var id = localStorage.getItem('id');
+
+
+
+		let state = localStorage.getItem("currentorder");
+		console.log(state);
+	if (state != 'y') {
+		console.log('hi');
+		// window.location = 'status.html'
+		const docRef = await addDoc(collection(db, "orders"), {
+
+color: retArrayPerson[2],
+order: retArrayOrder ,
+phone: retArrayPerson[0] ,
+size: retArrayPerson[1],
+status: 'w',
+shopid: id,
+date: Date.now()
+
+});
+newid = docRef.id;
+localStorage.setItem('newid', newid);
+
+// document.getElementById('mysmall').innerText = docRef.id;
+// console.log("Document written with ID: ", docRef.id);
+
+localStorage.setItem('currentorder', 'y');
+
+
+	}
+
+	var newid = localStorage.getItem('newid');
+
+
+		const q = query(doc(db, "orders" , newid), );
+const notDone = onSnapshot(q, (querySnapshot) => {
+	if (querySnapshot._document.data.value.mapValue.fields.status.stringValue == 'd') {
+		var html = '<div id="img" class="parallax-window-2" data-parallax="scroll" data-image-src="https://cdn.dribbble.com/users/2556713/screenshots/7569532/media/266e0452b1ce6ebebee6d3d8871d6ddd.gif"></div>';
+		
+		document.getElementById('upimg').innerHTML = html;
+		document.getElementById('nomoreme').style.visibility = 'hidden';
+		document.getElementById('mes').innerText = 'سيقوم الموظف بتسليم طلبـك';
+		swal("الطلب جاهز", "سيقوم الموظف بتسليم الطلب", "success").then(e=>{
+          localStorage.clear();
+          });
+	}
+	console.log(querySnapshot._document.data.value.mapValue.fields.status.stringValue);
+
+
+	
+	
+});
+	
+
+
+
+		// Add a new document with a generated id.
+	
+
+
+
+
+
+	</script>
+</body>
+
+</html>

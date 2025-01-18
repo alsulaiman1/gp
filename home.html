@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المقاهي والمطاعم</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      direction: rtl; /* Ensures RTL layout */
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: right; /* Align text to the right */
+    }
+    .cafe {
+      background-color: #fff;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .cafe h2 {
+      color: #00004d;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #00004d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+
+  <!-- Firebase SDK (v8) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXBoacFAwjCLeH1vRNO67XGfdG_eJjO7k",
+      authDomain: "qride-9fa6f.firebaseapp.com",
+      databaseURL: "https://qride-9fa6f-default-rtdb.firebaseio.com",
+      projectId: "qride-9fa6f",
+      storageBucket: "qride-9fa6f.appspot.com",
+      messagingSenderId: "632703434000",
+      appId: "1:632703434000:web:c2d133c8b4cfffd8ef3995",
+      measurementId: "G-VQTB8R1VHC"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Function to clear cookies and cache
+    function clearCacheAndCookies() {
+      localStorage.clear();
+      document.cookie.split(";").forEach(function (c) {
+        document.cookie = c.trim().split("=")[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+      });
+      caches.keys().then(function (names) {
+        for (let name of names) caches.delete(name);
+      });
+      console.log("Cache and cookies cleared!");
+    }
+
+    window.onload = function () {
+      clearCacheAndCookies();
+
+      // Fetching cafes/restaurants dynamically from Firebase
+      const cafeContainer = document.getElementById('cafe-list');
+
+      db.collection("shopui").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          let data = doc.data();
+
+          // Create cafe/restaurant entry
+          let cafeDiv = document.createElement('div');
+          cafeDiv.classList.add('cafe');
+
+          cafeDiv.innerHTML = `
+            <h2>${data.title}</h2>
+            <p>${data.slogo}</p>
+            <a class="button" href="index.html?id=${doc.id}">عرض التفاصيل</a>
+          `;
+
+          // Append to the container
+          cafeContainer.appendChild(cafeDiv);
+        });
+      }).catch((error) => {
+        console.error("Error fetching documents: ", error);
+      });
+    };
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h1>المقاهي والمطاعم</h1>
+  <div id="cafe-list"></div>
+</div>
+
+</body>
+</html>

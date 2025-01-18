@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title id="title"></title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+	<link href="css/all.min.css" rel="stylesheet" />
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+	
+	<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+	
+	<script>
+		let state = localStorage.getItem("currentorder");
+		if (state == 'y') {
+			window.location = 'status.html'
+			
+		}
+	</script>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+
+<script>
+	num = 0;
+	arr = [];
+</script>
+
+<body>
+
+	<div class="container">
+		<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div id="prcolor" class="placeholder" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+			<div class="parallax-window" data-parallax="scroll">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<div class="tm-site-text-box">
+								<h1 id="mytitle" class="tm-site-title"></h1>
+								<h6 id="slogo" class="tm-site-description"></h6>
+							</div>
+						</div>
+						<!-- <nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="index.html" class="tm-nav-link">عودة</a></li>
+
+							</ul>
+						</nav> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<style>
+			.box {
+  height: 25px;
+  width: 25px;
+  margin-bottom: 15px;
+  border: 1px  black;
+  border-radius: 10px;
+}
+
+		</style>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">اكمال الطلب</h2>
+			</header>
+
+			<div class="tm-container-inner-2 tm-contact-section">
+				<div class="row">
+					<div class="col-md-6">
+
+
+
+						<div dir="rtl" class="form-group">
+							<label dir="rtl" for="">رقم الجوال</label>
+							<input id="phone" dir="ltr"  name="text" class="form-control"
+								placeholder="05********" required="" />
+						</div>
+
+						<div id="step2">
+							<div dir="rtl">
+								<label dir="rtl" for="">اختر طريقة الاستلام</label>
+
+
+							</div>
+
+							<div dir="rtl" class="form-group">
+								
+
+								
+
+								<input style="border-radius: 10px;" type="image" src="img/d.png" width="100" height="100" value="0" id="0"> 
+								<input style="border-radius: 10px;" type="image" src="img/p.png" width="100" height="100" value="1" id="1">
+	
+								<br>
+
+							</div>
+
+
+
+						</div>
+
+						<div dir="rtl" id="step3">
+
+							<!-- <label for="favcolor">اختر لون السيارة</label>
+							<div>
+								<div id="black" class="box" style="background-color: #000000; float: right; padding: 5px; margin-left: 5px; border-width: 1px ; border-color:black; border-style: solid;"></div>
+								<div id="Silver" class="box" style="background-color: #ff0505;float: right; margin-left: 5px; border-color:black; border-style: solid;"></div>
+								<div id="white" class="box" style="background-color: #FFFFFF; float: right; padding: 5px; margin-left: 5px; border-color:black; border-style: solid;"></div>
+								<div id="gray" class="box" style="background-color: #808080;float: right; margin-left: 5px; border-color:black; border-style: solid;"></div>
+								<div id="darkblue" class="box" style="background-color: #00008B;float: right; margin-left: 5px; border-color:black; border-style: solid;"></div>
+
+
+							</div> -->
+							<input type="color" id="favcolor" name="favcolor" value="#ff0000" style="margin-right:5px" hidden>
+						</div>
+
+						<br><br>
+
+
+
+
+
+
+						<div class="form-group tm-d-flex">
+							<button style="color: #fff; border-radius: 10px;" id="mybtn" onclick="action(num)" class="tm-btn  tm-btn-right">
+								التالي
+							</button>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<!-- How to change your own map point
+	1. Go to Google Maps
+	2. Click on your location point
+	3. Click "Share" and choose "Embed map" tab
+	4. Copy only URL and paste it within the src="" field below
+-->
+
+		</main>
+
+	
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+
+
+
+	<script>
+
+    var stringuiobj = localStorage.getItem('uiobj');
+    var uiobj = JSON.parse(stringuiobj);
+
+
+    if (stringuiobj != null) {
+        document.getElementById('prcolor').style.backgroundColor = uiobj[0];
+        document.getElementById('mybtn').style.backgroundColor = uiobj[0];
+        document.getElementById('title').innerHTML = uiobj[1];
+        document.getElementById('mytitle').innerText = uiobj[1];
+        document.getElementById('slogo').innerText = uiobj[2];
+    }
+
+	
+
+
+		$(document).ready(function () {
+
+			$('#step2').addClass('hidden');
+			$('#step3').addClass('hidden');
+
+
+
+		});
+
+		$('#black').click(function (e) {
+
+			$('#favcolor').val('#000000');
+
+			// $('#white').hide();
+			// $('#gray').hide();
+			// $('#darkblue').hide();
+			// $('#Silver').hide();
+			
+
+			// console.log($('#favcolor').val());
+
+			//action(2);
+
+		});
+
+		$('#Silver').click(function (e) {
+
+ $('#favcolor').val('#ff0505');
+
+console.log($('#favcolor').val());
+ // action(2);
+
+});
+
+$('#white').click(function (e) {
+
+$('#favcolor').val('#ffffff');
+
+  // action(2);
+
+});
+$('#gray').click(function (e) {
+
+$('#favcolor').val('#808080');
+console.log($('#favcolor').val());
+
+// action(2);
+
+});
+$('#darkblue').click(function (e) {
+
+$('#favcolor').val('#00008B');
+console.log($('#favcolor').val());
+
+// action(2);
+
+});
+
+
+
+
+
+		$('#0').click(function (e) {
+			e.preventDefault();
+			$('#1').addClass('hidden');
+			$('#2').addClass('hidden');
+			arr[num] = $('#0').val();
+			
+			// $(this).addClass("active");
+
+			$('#step3').removeClass('hidden');
+				$('#mybtn').text('ارسال الطلب');
+				num = 2;
+		});
+
+		$('#1').click(function (e) {
+			e.preventDefault();
+			$('#0').addClass('hidden');
+			$('#2').addClass('hidden');
+			arr[num] = $('#1').val();
+			// $(this).addClass("active");
+			$('#step3').removeClass('hidden');
+				$('#mybtn').text('ارسال الطلب');
+				num = 2;
+		});
+
+		$('#2').click(function (e) {
+			e.preventDefault();
+			$('#0').addClass('hidden');
+			$('#1').addClass('hidden');
+			arr[num] = $('#2').val();
+			// $(this).addClass("active");
+			$('#step3').removeClass('hidden');
+				$('#mybtn').text('ارسال الطلب');
+				num = 2;
+		});
+
+
+		function toEnglishDigits(str) {
+
+// convert persian digits [۰۱۲۳۴۵۶۷۸۹]
+var e = '۰'.charCodeAt(0);
+str = str.replace(/[۰-۹]/g, function(t) {
+	return t.charCodeAt(0) - e;
+});
+
+// convert arabic indic digits [٠١٢٣٤٥٦٧٨٩]
+e = '٠'.charCodeAt(0);
+str = str.replace(/[٠-٩]/g, function(t) {
+	return t.charCodeAt(0) - e;
+});
+return str;
+}
+
+		function isNumber(value) {
+              if (typeof value === "string") {
+               return !isNaN(value);
+                 }
+           }
+
+
+function action(n) {
+			if (n == 0) {
+
+				
+
+
+	if ($('#phone').val().length == 10 || $('#phone').val().length == 9  ) {
+			if (isNumber($('#phone').val())  || isNumber(toEnglishDigits($('#phone').val()))) {
+				   console.log(toEnglishDigits($('#phone').val()));
+					$('#step2').removeClass('hidden');
+				    arr[num] = toEnglishDigits($('#phone').val());
+				    num = 1;
+				}else{
+					swal("ادخل رقم جوال صالح", "", "error");
+				}
+					
+				}else{
+					swal("ادخل رقم جوال صالح", "", "error");
+				}
+				
+
+
+			}
+
+			if (n == 1) {
+				$('#step3').removeClass('hidden');
+				$('#mybtn').text('ارسال الطلب');
+				num = 2;
+			}
+
+			if (n == 2) {
+				arr[num] = $('#favcolor').val();
+				var stringarr = JSON.stringify(arr);
+				localStorage.setItem("person", stringarr);
+
+				window.location = 'status.html'
+
+				// do firebase thing
+
+			}
+
+		}
+
+
+
+	</script>
+
+
+
+</body>
+
+</html>

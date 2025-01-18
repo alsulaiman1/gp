@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">السلة</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://kit.fontawesome.com/0faf04db21.js" crossorigin="anonymous"></script>
+<link href="css/templatemo-style.css" rel="stylesheet" />
+
+
+	
+	<!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
+
+  <!-- jQuery and JS bundle w/ Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+    
+<script>
+	let state = localStorage.getItem("currentorder");
+	if (state == 'y') {
+		window.location = 'status.html'
+		
+	}
+
+  
+</script>
+
+</head>
+
+<body>
+    <style>
+        body{
+    margin-top:20px;
+   
+}
+.ui-w-40 {
+    width: 40px !important;
+    height: auto;
+}
+
+.card{
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+}
+
+.ui-product-color {
+    display: inline-block;
+    overflow: hidden;
+    margin: .144em;
+    width: .875rem;
+    height: .875rem;
+    border-radius: 10rem;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    vertical-align: middle;
+}
+    </style>
+<style>
+  .item2 { grid-area: menu; }
+  .item3 { grid-area: main; }
+  .item4 { grid-area: right; }
+  .item5 { grid-area: footer; }
+  .item6 { grid-area: price; }
+
+  
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main right right'
+      'menu footer footer footer right right'
+      'price price price price price price';
+    gap: 5px;
+    /* background-color: #2196F3; */
+    padding: 5px;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+  }
+  
+  .grid-container > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: center;
+    padding: 5px 0;
+    font-size: 10px;
+  }
+
+  .grid-container > p {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: left;
+    padding: 5px 0;
+    font-size: 10px;
+  }
+
+
+  
+  </style>
+
+<h1 id="myh1" style="margin-right: 10px;"> < </h1>
+
+<br>
+<div id="put">
+  <!-- <div class="grid-container" id="mygridco" style="border-color: aqua;"> <div class="item2"><img class="img-fluid"  alt="Image" style="border-radius: 15px;" width="50" height="50" src="https://simply-delicious-food.com/wp-content/uploads/2022/06/Grilled-chicken-burgers2.jpg" alt="" id="frontimg"></div> <div class="item3" style="font-family: afontbold; font-size: 22px;">برغر - x2</div>  <p class="item4" style="font-family: afont; font-size: 22px; ">  <button id="del" onclick="del('+index+')" class="shop-tooltip close float-none  " title="" data-original-title="Remove" style="padding-left: 10%;"><i class="fa fa-trash" aria-hidden="true"></i></button> </p> <div class="item5" style="font-family: afont; font-size: 18px; color: #ccc;">js ثنين</div> <p class="item6" style="font-family: afont; font-size: 22px; padding-left: 5%;">22 ر.س</p> </div>
+  <div class="grid-container" id="mygridco" style="border-color: aqua;"> <div class="item2"><img class="img-fluid"  alt="Image" style="border-radius: 15px;" width="50" height="50" src="https://simply-delicious-food.com/wp-content/uploads/2022/06/Grilled-chicken-burgers2.jpg" alt="" id="frontimg"></div> <div class="item3" style="font-family: afontbold; font-size: 22px;">برغر - x2</div>  <p class="item4" style="font-family: afont; font-size: 22px; ">  <button id="del" onclick="del('+index+')" class="shop-tooltip close float-none  " title="" data-original-title="Remove" style="padding-left: 10%;"><i class="fa fa-trash" aria-hidden="true"></i></button> </p> <div class="item5" style="font-family: afont; font-size: 18px; color: #ccc;">js ثنين</div> <p class="item6" style="font-family: afont; font-size: 22px; padding-left: 5%;">22 ر.س</p> </div> -->
+
+</div>
+<br><br><br><br><br><br><br><br>
+
+    <!--
+      start before
+      
+      <div class="container px-3 my-5 clearfix">
+        <div class="card">
+            <div class="card-header">
+                <h2 dir="rtl">السلـة</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table  m-0">
+                    <thead>
+                      <tr>
+                        <th class="text-center py-3 px-4" >الصنف</th>
+                       
+                        <th class="text-center py-3 px-4" >العدد</th>
+                        <th class="text-right py-3 px-4" >السعر</th>
+                        <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                      </tr>
+                    </thead>
+                    <tbody id="mybody">
+            
+                     
+                    </tbody>
+                  </table>
+                </div>
+               
+            
+                <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+               
+                  <div class="d-flex">
+    
+                    <div class="text-right mt-4">
+                      <label class="text-muted font-weight-normal m-0">المجموع</label>
+                      <div class="text-large"><strong id="strong">ر.س</strong></div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="float-right">
+                  <button type="button" id="back" class="btn btn-lg btn-secondary md-btn-flat mt-2 mr-3">رجوع</button>
+                  <button onclick="done()" class="btn btn-lg mt-2" id="make">تنفيذ</button>
+                </div>
+            
+              </div>
+          </div>
+      </div> 
+    
+    End before
+    -->
+
+
+
+      <style>
+        #rcorners1 {
+          /* border-radius: 10px 140px 30px 140px; */
+         border-bottom-right-radius:50px ;
+         border-bottom-left-radius:50px ;
+        
+          background:#fff;
+          padding-top: 20px;
+          padding-bottom: 0;
+          /* margin: 50px;
+          margin-right: 50px;
+          margin-top: 0;
+          */
+         
+        }
+        
+        </style>
+  
+     
+          <div class="fab-containe active " id="curve" style="position:fixed; bottom:00; z-index: 1;  cursor:pointer; width: 100%;">
+          
+            <div id="rcorners1">
+             
+            <div style="height: 1px;">
+              <h1></h1>
+             <p></p>
+            </div>
+            </div>
+            <br>
+            
+            <span id="tot" style=" padding-right: 4%; font-family: afontbold; color: #fff; font-size: 21px;"></span>
+            <div  style="padding-right: 57%; font-family: afontbold; display: inline;"  dir="rtl">
+              <button  onclick="done()"   id="doit" class="btn" style="background-color: #fff;font-family: afontbold;border-radius: 10px; font-size: 21px;">تنفيــذ</button>
+              
+            </div>
+            <hr>
+          
+          </div>
+          
+  
+        
+        
+       
+
+      <script>
+
+
+    var stringuiobj = localStorage.getItem('uiobj');
+    var uiobj = JSON.parse(stringuiobj);
+
+        // document.getElementById('make').style.color = uiobj[0];
+        document.getElementById('curve').style.backgroundColor = uiobj[0];
+        document.getElementById('myh1').style.color = uiobj[0];
+        document.getElementById('doit').style.color = uiobj[0];
+        // document.getElementById('back').style.color = '#e91640';
+
+
+
+        var back = document.getElementById('myh1');
+        id = localStorage.getItem('id');
+
+        back.onclick = (e)=>{
+            window.location = 'index.html?id='+id;
+        }
+
+        var order = localStorage.getItem("order");
+        if (order != null ) {
+            let orderarr = JSON.parse(order);
+            var total = 0;
+
+            for (let index = 0; index < orderarr.length; index++) {
+              
+              var pricewithaddon = orderarr[index].price + orderarr[index].addonprice ;
+              console.log(pricewithaddon);
+              total = total + (pricewithaddon *orderarr[index].quantity);
+              var htm = '<div class="grid-container" id="mygridco" style="border-color:'+uiobj[0]+';"> <div class="item2"><img class="img-fluid"  alt="Image" style="border-radius: 15px;" width="50" height="50" src="'+orderarr[index].imgsrcfrontend+'" alt="" id="frontimg"></div> <div class="item3" style="font-family: afontbold; font-size: 22px; color:'+uiobj[0]+'">'+orderarr[index].name+' - x'+orderarr[index].quantity+'</div>  <p class="item4" style="font-family: afont; font-size: 22px; ">  <button id="del" onclick="del('+index+')" class="shop-tooltip close float-none  " title="" data-original-title="Remove" style="padding-left: 10%;"><i class="fa-solid fa-trash"></i></button> </p> <div class="item5" style="font-family: afont; font-size: 18px; color: #ccc;">'+orderarr[index].addonname+'</div> <p class="item6" style="font-family: afont; font-size: 22px; padding-left: 5%; color:'+uiobj[0]+'">'+pricewithaddon * orderarr[index].quantity+' ر.س</p> </div>';
+              htm = $.parseHTML(htm);
+              $("#put").append(htm);
+    //          var html =  '<tr> <td class="p-4">  <div class="media align-items-center">  <div class="media-body">  <a href="#" class="d-block text-dark">'+orderarr[index].name+'</a> <small>  <span class="text-muted">'+orderarr[index].addonname+'</span></small></div></div></td><td class="align-middle p-4">'+orderarr[index].quantity+'</td><td class="text-right font-weight-semibold align-middle p-4">'+pricewithaddon * orderarr[index].quantity+'</td><td class="text-center align-middle px-0"><button id="del" onclick="del('+index+')" class="shop-tooltip close float-none  " title="" data-original-title="Remove"><i class="fa fa-trash" aria-hidden="true"></i></button></td> </tr>';
+     //         html = $.parseHTML(html);
+       //       $("#mybody").append(html);
+
+              // if (index == orderarr.length -1 ) {
+              //   total = orderarr[index].total;
+              // }
+           
+              
+            }
+            
+          //  document.getElementById('strong').innerText = total + " ر.س"
+          document.getElementById('tot').innerText = total + " ر.س"
+
+        }else{
+          id = localStorage.getItem('id');
+
+          swal("السلة فارغة", "قم بإضافة طلبك من قائمة الطعام", "warning").then(e=>{
+            window.location = 'index.html?id='+id;
+          });
+           
+        }
+
+
+        // var del = document.getElementById('del');
+        // del.onclick = (e)=>{
+        //     e.preventDefault();
+        //     let orderarr = JSON.parse(order);
+
+
+        // }
+
+        function del(index) {
+          let orderarr = JSON.parse(order);
+
+
+          console.log(index);
+
+
+
+
+          if (orderarr.length == 1) {
+            
+            localStorage.removeItem("order");
+            location.reload();
+
+            
+
+          }else{
+
+    
+            orderarr.splice(index, index);
+
+
+             var  stringorder = JSON.stringify(orderarr);
+             localStorage.setItem("order", stringorder);
+             location.reload();
+
+
+
+             if (index == 0) {
+            orderarr[index] = orderarr[orderarr.length -1];
+            orderarr.pop();
+
+
+             var  stringorder = JSON.stringify(orderarr);
+             localStorage.setItem("order", stringorder);
+             location.reload();
+          }
+
+
+          }
+
+
+         
+          
+        }
+
+        function done() {
+          window.location = 'submit.html';
+        }
+
+
+      </script>
+
+
+
+
+
+</body>
+
+
+</html>
