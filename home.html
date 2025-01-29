@@ -4,42 +4,196 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المقاهي والمطاعم</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      direction: rtl; /* Ensures RTL layout */
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+    :root {
+      --primary: #2D3250;
+      --secondary: #424769;
+      --accent: #7077A1;
+      --light: #F6B17A;
+      --white: #ffffff;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Tajawal', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      min-height: 100vh;
+    }
+
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      text-align: right; /* Align text to the right */
     }
-    .cafe {
-      background-color: #fff;
+
+    .header {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--light), var(--white));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px var(--light), 0 0 20px var(--light);
+      }
+      to {
+        text-shadow: 0 0 15px var(--light), 0 0 30px var(--light);
+      }
+    }
+
+    .cafe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
       padding: 20px;
-      margin: 15px 0;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    .cafe h2 {
-      color: #00004d;
+
+    .cafe-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
     }
-    .button {
-      padding: 10px 20px;
-      background-color: #00004d;
-      color: white;
+
+    .cafe-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+
+    .cafe-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cafe-card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .cafe-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--light);
+    }
+
+    .cafe-card p {
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .cafe-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--light);
+      color: var(--primary);
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cafe-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(246, 177, 122, 0.4);
+    }
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--light);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .cafe-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 
-  <!-- Firebase SDK (v8) -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
 
+  <div class="container">
+    <header class="header" data-aos="fade-down">
+      <h1>المقاهي والمطاعم</h1>
+    </header>
+
+    <div class="cafe-grid" id="cafe-list">
+      <!-- Cafes will be dynamically added here -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
     // Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCXBoacFAwjCLeH1vRNO67XGfdG_eJjO7k",
@@ -59,50 +213,50 @@
     // Function to clear cookies and cache
     function clearCacheAndCookies() {
       localStorage.clear();
-      document.cookie.split(";").forEach(function (c) {
+      document.cookie.split(";").forEach(function(c) {
         document.cookie = c.trim().split("=")[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
       });
-      caches.keys().then(function (names) {
+      caches.keys().then(function(names) {
         for (let name of names) caches.delete(name);
       });
-      console.log("Cache and cookies cleared!");
     }
 
-    window.onload = function () {
-      clearCacheAndCookies();
+    // Show loading animation
 
-      // Fetching cafes/restaurants dynamically from Firebase
+      clearCacheAndCookies();
+      
+      setTimeout(() => {
+        document.querySelector('.loading-overlay').style.opacity = '0';
+        setTimeout(() => {
+          document.querySelector('.loading-overlay').style.display = 'none';
+        }, 500);
+      }, 1500);
+
+      // Fetch cafes/restaurants from Firebase
       const cafeContainer = document.getElementById('cafe-list');
 
       db.collection("shopui").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc, index) => {
           let data = doc.data();
+          
+          // Create cafe card with animation delay
+          let cafeCard = document.createElement('div');
+          cafeCard.className = 'cafe-card';
+          cafeCard.setAttribute('data-aos', 'fade-up');
+          cafeCard.setAttribute('data-aos-delay', (index * 100).toString());
 
-          // Create cafe/restaurant entry
-          let cafeDiv = document.createElement('div');
-          cafeDiv.classList.add('cafe');
-
-          cafeDiv.innerHTML = `
+          cafeCard.innerHTML = `
             <h2>${data.title}</h2>
             <p>${data.slogo}</p>
-            <a class="button" href="index.html?id=${doc.id}">عرض التفاصيل</a>
+            <a href="index.html?id=${doc.id}" class="cafe-button">عرض القائمة</a>
           `;
 
-          // Append to the container
-          cafeContainer.appendChild(cafeDiv);
+          cafeContainer.appendChild(cafeCard);
         });
       }).catch((error) => {
         console.error("Error fetching documents: ", error);
       });
-    };
+  
   </script>
-</head>
-<body>
-
-<div class="container">
-  <h1>المقاهي والمطاعم</h1>
-  <div id="cafe-list"></div>
-</div>
-
 </body>
 </html>
